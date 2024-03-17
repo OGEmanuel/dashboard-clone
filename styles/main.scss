@@ -1,0 +1,7 @@
+@import "_reset.scss";
+
+*,
+*::after,
+*::before {
+  @include reset;
+}
