@@ -11,10 +11,11 @@
   font-family: "Avenir-Next";
   src: url("/fonts/avenir-next/AvenirNextLTPro-Bold.otf") format("opentype");
   font-weight: 700;
-  font-style: normal;
+  font-style: bold;
 }
 
 .auth_login {
+  font-family: "Avenir-Next", sans-serif;
   margin: 4rem 4.1875rem 0 4.1875rem;
 
   .logo {
@@ -86,6 +87,7 @@
         }
 
         .login-btn {
+          font-family: inherit;
           width: 100%;
           background-color: $secondary-color;
           border: none;
