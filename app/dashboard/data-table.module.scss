@@ -1,0 +1,52 @@
+@use "/styles/_colors" as *;
+
+.table-section {
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 5px 0px 20px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba($primary-color, 0.06);
+  padding: 1.875rem;
+  border-radius: 4px;
+
+  table {
+    width: 100%;
+    border-spacing: 0 36px;
+
+    thead {
+      font-weight: 600;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      color: $main-text-color;
+
+      th {
+        span {
+          display: flex;
+          align-items: flex-start;
+          gap: 10px;
+
+          button {
+            background-color: #fff;
+            padding: 0;
+            border: none;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        td {
+          color: $main-text-color;
+          font-size: 0.875rem;
+
+          hr {
+            height: 1px;
+            margin-top: 2rem;
+            border: 1px solid rgba($main-text-color, 0.1);
+          }
+        }
+      }
+    }
+  }
+}

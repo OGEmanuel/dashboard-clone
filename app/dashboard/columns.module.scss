@@ -1,0 +1,35 @@
+@use "/styles/_colors" as *;
+
+.status {
+  padding: 7px 13px;
+  border-radius: 6.25rem;
+
+  &__inactive {
+    background-color: rgba($main-text-color, 0.06);
+    color: $main-text-color;
+  }
+
+  &__pending {
+    background-color: rgba(#e9b200, 0.1);
+    color: #e9b200;
+  }
+
+  &__blacklisted {
+    background-color: rgba(#e4033b, 0.1);
+    color: #e4033b;
+  }
+
+  &__active {
+    background-color: rgba(#39cd62, 0.06);
+    color: #39cd62;
+  }
+}
+
+.more {
+  background-color: #fff;
+  height: 17px;
+  padding: 0;
+  border: none;
+  display: block;
+  cursor: pointer;
+}

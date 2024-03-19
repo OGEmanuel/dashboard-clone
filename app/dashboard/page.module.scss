@@ -11,6 +11,7 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1.625rem;
+  margin-bottom: 2.5rem;
 
   &-card {
     padding: 1.875rem;

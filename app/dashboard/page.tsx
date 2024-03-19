@@ -3,8 +3,13 @@ import ActiveUsersIcon from "@/public/icons/active-users-icon";
 import UserLoansIcon from "@/public/icons/users-loans-icon";
 import UsersPageIcon from "@/public/icons/users-page-icon";
 import UsersSavingsIcon from "@/public/icons/users-savings-icon";
+import { getTableData } from "../lib/data";
+import { dataType } from "@/types/entity";
+import DataTable from "./data-table";
+import { columns } from "./columns";
 
-const DashboardPage = () => {
+const DashboardPage = async () => {
+  const data: dataType[] = await getTableData();
   return (
     <>
       <h1 className={styles.header}>Users</h1>
@@ -37,6 +42,7 @@ const DashboardPage = () => {
           <p className={styles["summary-card__total"]}>102,453</p>
         </div>
       </div>
+      <DataTable data={data} columns={columns} />
     </>
   );
 };
