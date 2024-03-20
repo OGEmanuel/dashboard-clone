@@ -4,7 +4,6 @@ import FilterResultsButtonIcon from "@/public/icons/filter-results-button-icon";
 import styles from "./data-table.module.scss";
 import {
   ColumnDef,
-  createColumnHelper,
   flexRender,
   getCoreRowModel,
   getFilteredRowModel,
@@ -14,6 +13,8 @@ import {
 import PrevIcon from "@/public/icons/prev-icon";
 import NextIcon from "@/public/icons/next-icon";
 import ShowMoreIcon from "@/public/icons/show-more-icon";
+import Filter from "@/components/filter";
+import { useState } from "react";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -24,27 +25,18 @@ const DataTable = <TData, TValue>({
   columns,
   data,
 }: DataTableProps<TData, TValue>) => {
-  // const columnHelper = createColumnHelper();
-
-  // const columnsData = [
-  //   columnHelper.accessor("organization", {
-  //     cell: (info) => <span>{info.getValue()}</span>,
-  //   }),
-  // ];
-
+  const [filter, setFilter] = useState(false);
   const table = useReactTable({
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
-    // onColumnFiltersChange: setColumnFilters,
-    // onSortingChange: setSorting,
     getFilteredRowModel: getFilteredRowModel(),
-    // state: {
-    //   columnFilters,
-    //   sorting,
-    // },
   });
+
+  const handleFilter = () => {
+    setFilter(!filter);
+  };
 
   return (
     <section className={styles["table-section"]}>
@@ -61,7 +53,7 @@ const DataTable = <TData, TValue>({
                     )}
                     {i !== table.getHeaderGroups()[0].headers.length - 1 && (
                       <>
-                        <button>
+                        <button onClick={handleFilter}>
                           <FilterResultsButtonIcon />
                         </button>
                       </>
@@ -89,6 +81,11 @@ const DataTable = <TData, TValue>({
               ))
             : null}
         </tbody>
+        {filter && (
+          <div className={styles.filter}>
+            <Filter />
+          </div>
+        )}
       </table>
       {/* pagination */}
       <div className={styles.pagination}>
@@ -100,7 +97,7 @@ const DataTable = <TData, TValue>({
           </div>
           <p>Out of 100</p>
         </div>
-        <div className={styles['pagination-pages']}>
+        <div className={styles["pagination-pages"]}>
           <button
             onClick={() => {
               table.previousPage();
