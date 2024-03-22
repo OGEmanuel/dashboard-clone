@@ -1,0 +1,23 @@
+@use "/styles/_colors" as *;
+
+.pagination {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: $main-text-color;
+
+  .cur-page {
+    font-weight: 500;
+  }
+
+  span {
+    cursor: pointer;
+  }
+
+  button {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    cursor: pointer;
+  }
+}

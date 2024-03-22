@@ -5,11 +5,11 @@ import styles from "./action-btn.module.scss";
 import ViewIcon from "@/public/icons/view-icon";
 import DeleteUserIcon from "@/public/icons/delete-user-icon";
 import ActivateUserIcon from "@/public/icons/activate-user-icon";
-import { dataType } from "@/types/entity";
+import { DataType } from "@/types/entity";
 import { useState } from "react";
 import Link from "next/link";
 
-const ActionBtn = ({ data }: { data: dataType }) => {
+const ActionBtn = ({ data }: { data: DataType }) => {
   const [activeId, setActiveId] = useState<string | undefined>(undefined);
 
   const handleViewActions = (id: string) => {

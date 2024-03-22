@@ -15,6 +15,7 @@ import NextIcon from "@/public/icons/next-icon";
 import ShowMoreIcon from "@/public/icons/show-more-icon";
 import Filter from "@/components/filter";
 import { useState } from "react";
+import Pagination from "./pagination";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -26,18 +27,34 @@ const DataTable = <TData, TValue>({
   data,
 }: DataTableProps<TData, TValue>) => {
   const [filter, setFilter] = useState(false);
+  const [pagination, setPagination] = useState({
+    pageIndex: 0, //initial page index
+    pageSize: 10, //default page size
+  });
+  const setPage = (pageIndex: number) => {
+    setPagination((prevPagination) => ({
+      ...prevPagination,
+      pageIndex: pageIndex,
+    }));
+  };
   const table = useReactTable({
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
-    getFilteredRowModel: getFilteredRowModel(),
+    onPaginationChange: setPagination,
+    state: {
+      pagination,
+    },
+    pageCount: data.length / pagination.pageSize,
   });
 
   const handleFilter = () => {
     setFilter(!filter);
     console.log(filter);
   };
+
+  // console.log(data);
 
   return (
     <section className={styles["table-section"]}>
@@ -88,35 +105,28 @@ const DataTable = <TData, TValue>({
         <div className={styles["pagination-view"]}>
           <p>Showing</p>
           <div className={styles["pagination-view__dropdown"]}>
-            <p>100</p>
-            <ShowMoreIcon />
+            <select
+              value={table.getState().pagination.pageSize}
+              onChange={(e) => {
+                table.setPageSize(Number(e.target.value));
+              }}
+            >
+              {[10, 20, 30, 40, 50].map((pageSize) => (
+                <option key={pageSize} value={pageSize}>
+                  {pageSize}
+                </option>
+              ))}
+            </select>
           </div>
-          <p>Out of 100</p>
+          <p>Out of {data.length}</p>
         </div>
-        <div className={styles["pagination-pages"]}>
-          <button
-            onClick={() => {
-              table.previousPage();
-            }}
-            disabled={table.getCanPreviousPage()}
-          >
-            <PrevIcon />
-          </button>
-          <span>1</span>
-          <span>2</span>
-          <span>3</span>
-          <span>...</span>
-          <span>15</span>
-          <span>16</span>
-          <button
-            onClick={() => {
-              table.nextPage();
-            }}
-            disabled={table.getCanNextPage()}
-          >
-            <NextIcon />
-          </button>
-        </div>
+
+        <Pagination
+          pageCount={table.getPageCount()}
+          pageIndex={pagination.pageIndex}
+          setPage={setPage}
+          table={table}
+        />
       </div>
       {filter && (
         <div className={styles.filter}>

@@ -1,6 +1,6 @@
 export async function getTableData() {
   const response = await fetch(
-    "https://run.mocky.io/v3/cd737254-41a2-4806-a92a-5e16f29b16ea"
+    "https://run.mocky.io/v3/083bbabe-ac5f-4187-917f-db9a60e1466f"
   );
 
   if (!response.ok) {
