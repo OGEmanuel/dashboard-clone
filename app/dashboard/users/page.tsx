@@ -3,13 +3,13 @@ import ActiveUsersIcon from "@/public/icons/active-users-icon";
 import UserLoansIcon from "@/public/icons/users-loans-icon";
 import UsersPageIcon from "@/public/icons/users-page-icon";
 import UsersSavingsIcon from "@/public/icons/users-savings-icon";
-import { dataType } from "@/types/entity";
+import { DataType } from "@/types/entity";
 import DataTable from "./data-table";
 import { columns } from "./columns";
 import { getTableData } from "@/app/lib/data";
 
 const DashboardPage = async () => {
-  const data: dataType[] = await getTableData();
+  const data: DataType[] = await getTableData();
   return (
     <>
       <h1 className={styles.header}>Users</h1>

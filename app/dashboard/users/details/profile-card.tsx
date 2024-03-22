@@ -1,18 +1,34 @@
+"use client";
+
 import Image from "next/image";
 import styles from "./profile-card.module.scss";
 import FullStarIcon from "@/public/icons/full-star-icon";
 import EmptyStarIcon from "@/public/icons/empty-star-icon";
 import TabSelectors from "./tabs/selectors";
+import { useEffect, useState } from "react";
+import { DetailsDataType } from "@/types/entity";
 
 const ProfileCard = () => {
+  const [details, setDetails] = useState<DetailsDataType | null>(null);
+
+  useEffect(() => {
+    const data: string | null = localStorage.getItem("user_details");
+
+    if (data !== null) {
+      setDetails(JSON.parse(data));
+    } else {
+      return;
+    }
+  }, []);
+
   return (
     <div className={styles["profile-card"]}>
       <div className={styles["profile-card__user"]}>
         <Image src={"/avatar.png"} alt="avatar" width={100} height={100} />
         <div className={styles["profile-card__user-profile"]}>
           <div className={styles["profile-card__user-profile__id"]}>
-            <p>Grace Effiom</p>
-            <p>LSQFf587g90</p>
+            <p>{details?.full_name}</p>
+            <p>{details?.id}</p>
           </div>
           <div className={styles["profile-card__user-profile__tier"]}>
             <p>User’s Tier</p>
@@ -23,8 +39,11 @@ const ProfileCard = () => {
             </div>
           </div>
           <div className={styles["profile-card__user-profile__account"]}>
-            <p>₦200,000.00</p>
-            <p>9912345678/Providus Bank</p>
+            <p>{details?.financial_details.balance}</p>
+            <p>
+              {details?.financial_details.bank_account}/
+              {details?.financial_details.bank_account}
+            </p>
           </div>
         </div>
       </div>

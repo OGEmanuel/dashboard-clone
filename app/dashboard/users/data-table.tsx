@@ -6,16 +6,13 @@ import {
   ColumnDef,
   flexRender,
   getCoreRowModel,
-  getFilteredRowModel,
   getPaginationRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-import PrevIcon from "@/public/icons/prev-icon";
-import NextIcon from "@/public/icons/next-icon";
-import ShowMoreIcon from "@/public/icons/show-more-icon";
 import Filter from "@/components/filter";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Pagination from "./pagination";
+import { DetailsData } from "./details-data";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -28,8 +25,8 @@ const DataTable = <TData, TValue>({
 }: DataTableProps<TData, TValue>) => {
   const [filter, setFilter] = useState(false);
   const [pagination, setPagination] = useState({
-    pageIndex: 0, //initial page index
-    pageSize: 10, //default page size
+    pageIndex: 0,
+    pageSize: 10,
   });
   const setPage = (pageIndex: number) => {
     setPagination((prevPagination) => ({
@@ -49,12 +46,13 @@ const DataTable = <TData, TValue>({
     pageCount: data.length / pagination.pageSize,
   });
 
+  useEffect(() => {
+    localStorage.setItem("user_details", JSON.stringify(DetailsData));
+  }, []);
+
   const handleFilter = () => {
     setFilter(!filter);
-    console.log(filter);
   };
-
-  // console.log(data);
 
   return (
     <section className={styles["table-section"]}>
@@ -100,7 +98,6 @@ const DataTable = <TData, TValue>({
             : null}
         </tbody>
       </table>
-      {/* pagination */}
       <div className={styles.pagination}>
         <div className={styles["pagination-view"]}>
           <p>Showing</p>
@@ -120,7 +117,6 @@ const DataTable = <TData, TValue>({
           </div>
           <p>Out of {data.length}</p>
         </div>
-
         <Pagination
           pageCount={table.getPageCount()}
           pageIndex={pagination.pageIndex}

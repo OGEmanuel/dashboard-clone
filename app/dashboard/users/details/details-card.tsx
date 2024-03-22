@@ -1,42 +1,57 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import styles from "./details-card.module.scss";
+import { DetailsDataType } from "@/types/entity";
 
 const DetailsCard = () => {
+  const [details, setDetails] = useState<DetailsDataType | null>(null);
+
+  useEffect(() => {
+    const data: string | null = localStorage.getItem("user_details");
+
+    if (data !== null) {
+      setDetails(JSON.parse(data));
+    } else {
+      return;
+    }
+  }, []);
   return (
     <div className={styles["details-card"]}>
-      <div className={styles["details-card__personal-info"]}>
+      <div>
         <p>Personal Information</p>
         <div>
           <div>
             <p>full Name</p>
-            <p>Grace Effiom</p>
+            <p>{details?.full_name}</p>
           </div>
           <div>
             <p>Phone Number</p>
-            <p>07060780922</p>
+            <p>{details?.phone_number}</p>
           </div>
           <div>
             <p>Email Address</p>
-            <p>grace@gmail.com</p>
+            <p>{details?.email_address}</p>
           </div>
           <div>
             <p>Bvn</p>
-            <p>07060780922</p>
+            <p>{details?.financial_details.bvn}</p>
           </div>
           <div>
             <p>Gender</p>
-            <p>Female</p>
+            <p>{details?.gender}</p>
           </div>
           <div>
             <p>Marital status</p>
-            <p>Single</p>
+            <p>{details?.marital_status}</p>
           </div>
           <div>
             <p>Children</p>
-            <p>None</p>
+            <p>{details?.children}</p>
           </div>
           <div>
             <p>Type of residence</p>
-            <p>Parent’s Apartment</p>
+            <p>{details?.type_of_residence}</p>
           </div>
         </div>
       </div>
@@ -45,31 +60,31 @@ const DetailsCard = () => {
         <div>
           <div>
             <p>level of education</p>
-            <p>B.Sc</p>
+            <p>{details?.education_employment.level_of_education}</p>
           </div>
           <div>
             <p>employment status</p>
-            <p>Employed</p>
+            <p>{details?.education_employment.employment_status}</p>
           </div>
           <div>
             <p>sector of employment</p>
-            <p>FinTech</p>
+            <p>{details?.education_employment.sector_of_employment}</p>
           </div>
           <div>
             <p>Duration of employment</p>
-            <p>2 years</p>
+            <p>{details?.education_employment.duration_of_employment}</p>
           </div>
           <div>
             <p>office email</p>
-            <p>grace@lendsqr.com</p>
+            <p>{details?.education_employment.office_email}</p>
           </div>
           <div>
             <p>Monthly income</p>
-            <p>₦200,000.00- ₦400,000.00</p>
+            <p>{details?.education_employment.monthly_income}</p>
           </div>
           <div>
             <p>loan repayment</p>
-            <p>40,000</p>
+            <p>{details?.education_employment.loan_repayment}</p>
           </div>
         </div>
       </div>
@@ -78,15 +93,15 @@ const DetailsCard = () => {
         <div>
           <div>
             <p>Twitter</p>
-            <p>@grace_effiom</p>
+            <p>{details?.socials.twitter}</p>
           </div>
           <div>
             <p>Facebook</p>
-            <p>Grace Effiom</p>
+            <p>{details?.socials.facebook}</p>
           </div>
           <div>
             <p>Instagram</p>
-            <p>@grace_effiom</p>
+            <p>{details?.socials.instagram}</p>
           </div>
         </div>
       </div>
@@ -95,19 +110,19 @@ const DetailsCard = () => {
         <div>
           <div>
             <p>full Name</p>
-            <p>Debby Ogana</p>
+            <p>{details?.guarantor.full_name}</p>
           </div>
           <div>
             <p>Phone Number</p>
-            <p>07060780922</p>
+            <p>{details?.guarantor.phone_number}</p>
           </div>
           <div>
             <p>Email Address</p>
-            <p>debby@gmail.com</p>
+            <p>{details?.guarantor.email_address}</p>
           </div>
           <div>
             <p>Relationship</p>
-            <p>Sister</p>
+            <p>{details?.guarantor.relationship}</p>
           </div>
         </div>
       </div>

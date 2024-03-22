@@ -1,6 +1,6 @@
 "use client";
 
-import { dataType } from "@/types/entity";
+import { DataType } from "@/types/entity";
 import { ColumnDef } from "@tanstack/react-table";
 import styles from "./columns.module.scss";
 import ActionBtn from "./action-btn";
@@ -12,7 +12,7 @@ enum Status {
   Blacklisted = "blacklisted",
 }
 
-export const columns: ColumnDef<dataType>[] = [
+export const columns: ColumnDef<DataType>[] = [
   {
     accessorKey: "organization",
     header: "Organization",

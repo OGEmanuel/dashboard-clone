@@ -17,7 +17,6 @@ import BriefcaseIcon2 from "@/public/icons/briefcase-icon-2";
 import SavingsProductsIcon from "@/public/icons/savings-products-icon";
 import CoinsSolidIcon from "@/public/icons/coins-solid-icon";
 import TransactionIcon from "@/public/icons/transaction-icon";
-import GalaxyIcon from "@/public/icons/galaxy-icon";
 import UserCogIcon from "@/public/icons/user-cog-icon";
 import ScrollIcon from "@/public/icons/scroll-icon";
 import ChartBarIcon from "@/public/icons/chart-bar-icon";
