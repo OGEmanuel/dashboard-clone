@@ -1,4 +1,5 @@
 @use "/styles/_colors" as *;
+@import "/styles/_breakpoints.scss";
 
 @font-face {
   font-family: "Avenir-Next";
@@ -19,8 +20,24 @@
   max-width: 1440px;
   margin: 4rem auto;
 
+  @include for-size(phone-only) {
+    margin: 0;
+    padding: 2rem;
+  }
+
+  @include for-size(tablet-portrait-up) {
+    margin: 2rem auto;
+  }
+
   .logo {
     margin: 0 0 4.5625rem 4rem;
+
+    @include for-size(phone-only) {
+      margin: 0 0 1rem 0;
+    }
+    @include for-size(tablet-portrait-up) {
+      margin: 0 0 2rem 2rem;
+    }
   }
 
   .main-box {
@@ -28,9 +45,40 @@
     align-items: center;
     gap: 4.3125rem;
 
+    @include for-size(phone-only) {
+      display: block;
+    }
+    @include for-size(tablet-landscape-up) {
+      gap: 1rem;
+    }
+
+    img {
+      @include for-size(phone-only) {
+        display: none;
+      }
+      @include for-size(tablet-portrait-up) {
+        display: none;
+      }
+      @include for-size(tablet-landscape-up) {
+        display: none;
+      }
+      @include for-size(desktop-up) {
+        display: block;
+      }
+    }
+
     .form-box {
       margin: 0 6.245rem 0 6.25rem;
       width: 100%;
+
+      @include for-size(phone-only) {
+        margin: 0 auto;
+        max-width: 27.9375rem;
+      }
+      @include for-size(tablet-portrait-up) {
+        margin: 0 auto;
+        max-width: 27.9375rem;
+      }
 
       h1 {
         margin-bottom: 0.625rem;

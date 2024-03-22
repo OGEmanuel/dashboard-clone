@@ -27,8 +27,11 @@ const LoginForm = () => {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (loading) return;
+    if (email === "" && password.length < 8) {
+      setError(true);
+      return;
+    }
     setLoading(true);
-    if (!email.includes("@") && password.length < 8) setError(true);
     router.push("/dashboard");
   };
 
@@ -40,6 +43,7 @@ const LoginForm = () => {
           placeholder="Email"
           value={email}
           onChange={(e) => handleEmail(e)}
+          required
         />
         <span className={styles["password-input"]}>
           <input
@@ -47,6 +51,7 @@ const LoginForm = () => {
             placeholder="Password"
             value={password}
             onChange={(e) => handlePassword(e)}
+            required
           />
           <button onClick={handleShow} type="button" className={styles.show}>
             {!show ? "SHOW" : "HIDE"}

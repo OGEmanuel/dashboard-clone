@@ -13,12 +13,14 @@ export default function Home() {
         height={36}
       />
       <div className={styles["main-box"]}>
-        <Image
-          src={"/pablo-sign-in.png"}
-          alt="sign-in"
-          width={600}
-          height={337.57}
-        />
+        <div className={styles["main-box__img"]}>
+          <Image
+            src={"/pablo-sign-in.png"}
+            alt="sign-in"
+            width={600}
+            height={337.57}
+          />
+        </div>
         <div className={styles["form-box"]}>
           <h1>Welcome!</h1>
           <p className={styles.info}>Enter details to login.</p>
