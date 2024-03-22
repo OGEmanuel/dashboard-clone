@@ -1,0 +1,10 @@
+@use "/styles/_colors" as *;
+
+.actions-card {
+  list-style: none;
+  position: absolute;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}

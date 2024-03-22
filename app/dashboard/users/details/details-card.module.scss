@@ -1,0 +1,49 @@
+@use "/styles/_colors" as *;
+
+.details-card {
+  padding: 1.875rem;
+  box-shadow: 5px 0px 20px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba($primary-color, 0.06);
+
+  & > div {
+    display: flex;
+    flex-direction: column;
+    gap: 1.875rem;
+
+    &:not(:last-child) {
+      padding-bottom: 1.875rem;
+      border-bottom: 1px solid rgba($primary-color, 0.1);
+      margin-bottom: 1.875rem;
+    }
+
+    & > p {
+      font-weight: 500;
+      color: $primary-color;
+    }
+
+    & > div {
+      display: grid;
+      row-gap: 1.875rem;
+      column-gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(auto, 14rem));
+
+      div {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        p {
+          color: $main-text-color;
+
+          &:nth-child(1) {
+            text-transform: uppercase;
+            font-size: 12px;
+          }
+          &:nth-child(2) {
+            font-weight: 500;
+          }
+        }
+      }
+    }
+  }
+}

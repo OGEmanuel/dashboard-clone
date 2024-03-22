@@ -1,0 +1,47 @@
+@use "/styles/_colors" as *;
+
+.more {
+  background-color: #fff;
+  height: 17px;
+  padding: 0;
+  border: none;
+  display: block;
+  cursor: pointer;
+}
+
+.action {
+  position: relative;
+
+  ul {
+    position: absolute;
+    top: 2.7rem;
+    left: -7rem;
+    padding: 1.25rem;
+    z-index: 10;
+    background-color: #fff;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    width: 11.25rem;
+    gap: 1.25rem;
+    border: 1px solid rgba($main-text-color, 0.04);
+    box-shadow: 5px 0px 20px rgba(0, 0, 0, 0.04);
+    border-radius: 4px;
+
+    li {
+      display: flex;
+      gap: 8px;
+      color: $main-text-color;
+      font-weight: 500;
+      font-size: 14px;
+
+      a {
+        display: flex;
+        gap: 8px;
+        font-family: inherit;
+        text-decoration: none;
+        color: $main-text-color;
+      }
+    }
+  }
+}

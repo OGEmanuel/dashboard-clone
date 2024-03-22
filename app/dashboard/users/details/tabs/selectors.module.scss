@@ -1,0 +1,30 @@
+@use "/styles/_colors" as *;
+
+.selectors {
+  display: flex;
+  justify-content: space-between;
+  gap: 5rem;
+  padding-right: 2.25rem;
+
+  button {
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+    padding-bottom: 10px;
+    border-bottom: 2px solid transparent;
+    font-family: inherit;
+    font-size: 1rem;
+
+    &:hover,
+    &:nth-child(1) {
+      color: $secondary-color;
+    }
+
+    &:nth-child(1) {
+      transition: all;
+      padding-left: 1.5625rem;
+      padding-right: 1.5625rem;
+      border-bottom: 2px solid $secondary-color;
+    }
+  }
+}

@@ -1,0 +1,57 @@
+@use "/styles/_colors" as *;
+
+.section {
+  a {
+    display: flex;
+    gap: 13px;
+    align-items: center;
+    font-family: inherit;
+    text-decoration: none;
+    color: $main-text-color;
+    margin-bottom: 1.625rem;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2.5rem;
+
+    h1 {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: $primary-color;
+    }
+
+    &-actions {
+      display: flex;
+      gap: 1.25rem;
+
+      button {
+        padding: 12px 1.875rem;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 600;
+        border-width: 1px;
+        border-style: solid;
+        border-radius: 8px;
+        background-color: #fff;
+        letter-spacing: 2px;
+        font-family: inherit;
+
+        &:hover {
+          background-color: rgba($main-text-color, 0.05);
+        }
+      }
+
+      &__blacklist {
+        color: #e4033b;
+        border-color: #e4033b;
+      }
+
+      &__activate {
+        color: #39cdcc;
+        border-color: #39cdcc;
+      }
+    }
+  }
+}

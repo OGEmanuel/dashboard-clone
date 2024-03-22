@@ -36,6 +36,7 @@ const DataTable = <TData, TValue>({
 
   const handleFilter = () => {
     setFilter(!filter);
+    console.log(filter);
   };
 
   return (
@@ -81,11 +82,6 @@ const DataTable = <TData, TValue>({
               ))
             : null}
         </tbody>
-        {filter && (
-          <div className={styles.filter}>
-            <Filter />
-          </div>
-        )}
       </table>
       {/* pagination */}
       <div className={styles.pagination}>
@@ -122,6 +118,11 @@ const DataTable = <TData, TValue>({
           </button>
         </div>
       </div>
+      {filter && (
+        <div className={styles.filter}>
+          <Filter />
+        </div>
+      )}
     </section>
   );
 };

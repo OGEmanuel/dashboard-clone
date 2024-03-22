@@ -44,52 +44,52 @@ const Sidebar = () => {
         <ul>
           <li
             className={`${styles["nav-list-item"]} ${
-              pathname === "/dashboard" ? styles["nav-list-item--active"] : ""
+              pathname.includes("users") ? styles["nav-list-item--active"] : ""
             }`}
           >
-            <Link href={"/dashboard"}>
+            <Link href={"/dashboard/users"}>
               <UserFriendsIcon />
               Users
             </Link>
           </li>
           <li className={styles["nav-list-item"]}>
-            <Link href={"/dashboard"}>
+            <Link href={"/dashboard/users"}>
               <UsersIcon />
               Guarantors
             </Link>
           </li>
           <li className={styles["nav-list-item"]}>
-            <Link href={"/dashboard"}>
+            <Link href={"/dashboard/users"}>
               <SackIcon />
               Loans
             </Link>
           </li>
           <li className={styles["nav-list-item"]}>
-            <Link href={"/dashboard"}>
+            <Link href={"/dashboard/users"}>
               <HandshakeRegularIcon />
               Decision Models
             </Link>
           </li>
           <li className={styles["nav-list-item"]}>
-            <Link href={"/dashboard"}>
+            <Link href={"/dashboard/users"}>
               <PiggyBankIcon />
               Savings
             </Link>
           </li>
           <li className={styles["nav-list-item"]}>
-            <Link href={"/dashboard"}>
+            <Link href={"/dashboard/users"}>
               <LoanRequestIcon />
               Loan Requests
             </Link>
           </li>
           <li className={styles["nav-list-item"]}>
-            <Link href={"/dashboard"}>
+            <Link href={"/dashboard/users"}>
               <UserCheckIcon />
               Whitelist
             </Link>
           </li>
           <li className={styles["nav-list-item"]}>
-            <Link href={"/dashboard"}>
+            <Link href={"/dashboard/users"}>
               <UserTimesIcon />
               Karma
             </Link>
@@ -100,55 +100,49 @@ const Sidebar = () => {
         <p className={styles.section}>BUSINESSES</p>
         <ul>
           <li className={styles["nav-list-item"]}>
-            <Link href={"/dashboard"}>
+            <Link href={"/dashboard/users"}>
               <BriefcaseIcon2 />
               Organization
             </Link>
           </li>
           <li className={styles["nav-list-item"]}>
-            <Link href={"/dashboard"}>
+            <Link href={"/dashboard/users"}>
               <LoanRequestIcon />
               Loan Products
             </Link>
           </li>
           <li className={styles["nav-list-item"]}>
-            <Link href={"/dashboard"}>
+            <Link href={"/dashboard/users"}>
               <SavingsProductsIcon />
               Savings Products
             </Link>
           </li>
           <li className={styles["nav-list-item"]}>
-            <Link href={"/dashboard"}>
+            <Link href={"/dashboard/users"}>
               <CoinsSolidIcon />
               Fees and Charges
             </Link>
           </li>
           <li className={styles["nav-list-item"]}>
-            <Link href={"/dashboard"}>
+            <Link href={"/dashboard/users"}>
               <TransactionIcon />
               Transactions
             </Link>
           </li>
           <li className={styles["nav-list-item"]}>
-            <Link href={"/dashboard"}>
-              <GalaxyIcon />
-              Services
-            </Link>
-          </li>
-          <li className={styles["nav-list-item"]}>
-            <Link href={"/dashboard"}>
+            <Link href={"/dashboard/users"}>
               <UserCogIcon />
               Service Account
             </Link>
           </li>
           <li className={styles["nav-list-item"]}>
-            <Link href={"/dashboard"}>
+            <Link href={"/dashboard/users"}>
               <ScrollIcon />
               Settlements
             </Link>
           </li>
           <li className={styles["nav-list-item"]}>
-            <Link href={"/dashboard"}>
+            <Link href={"/dashboard/users"}>
               <ChartBarIcon />
               Reports
             </Link>
@@ -159,19 +153,19 @@ const Sidebar = () => {
         <p className={styles.section}>SETTINGS</p>
         <ul>
           <li className={styles["nav-list-item"]}>
-            <Link href={"/dashboard"}>
+            <Link href={"/dashboard/users"}>
               <SlidersIcon />
               <span>Preferences</span>
             </Link>
           </li>
           <li className={styles["nav-list-item"]}>
-            <Link href={"/dashboard"}>
+            <Link href={"/dashboard/users"}>
               <BadgePercentIcon />
               Fees and Pricing
             </Link>
           </li>
           <li className={styles["nav-list-item"]}>
-            <Link href={"/dashboard"}>
+            <Link href={"/dashboard/users"}>
               <ClipboardListIcon />
               Audit Logs
             </Link>

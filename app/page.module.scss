@@ -16,7 +16,9 @@
 
 .auth_login {
   font-family: "Avenir-Next", sans-serif;
-  margin: 4rem 4.1875rem 0 4.1875rem;
+  // margin: 4rem 4.1875rem 0 4.1875rem;
+  max-width: 1440px;
+  margin: 4rem auto;
 
   .logo {
     margin: 0 0 4.5625rem 4rem;
@@ -42,62 +44,6 @@
         margin-bottom: 3.75rem;
         font-size: 1.25rem;
         color: $main-text-color;
-      }
-
-      form {
-        .form-inputs {
-          display: flex;
-          flex-direction: column;
-          gap: 1.5rem;
-          margin-bottom: 1.875rem;
-
-          input {
-            border: 2px solid rgba($main-text-color, 0.15);
-            outline: none;
-            padding: 1.09375rem 0 1.09375rem 1rem;
-            width: 100%;
-            font-family: inherit;
-            font-size: 0.875rem;
-            display: block;
-            border-radius: 5px;
-          }
-
-          .password-input {
-            position: relative;
-            width: 100%;
-
-            .show {
-              position: absolute;
-              display: inline;
-              top: 1.25rem;
-              right: 1.25rem;
-              border: none;
-              background-color: #fff;
-              font-family: inherit;
-            }
-          }
-
-          .show,
-          p {
-            font-weight: 600;
-            font-size: 0.875rem;
-            color: $secondary-color;
-            cursor: pointer;
-          }
-        }
-
-        .login-btn {
-          font-family: inherit;
-          width: 100%;
-          background-color: $secondary-color;
-          border: none;
-          cursor: pointer;
-          font-weight: 600;
-          font-size: 0.875rem;
-          color: #fff;
-          padding: 1.2rem 0 1.2rem;
-          border-radius: 8px;
-        }
       }
     }
   }
