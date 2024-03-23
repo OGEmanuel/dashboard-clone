@@ -18,7 +18,8 @@
 
     @include for-size(phone-only) {
       flex-direction: column;
-      gap: 10px;
+      gap: 14px;
+      align-items: center;
     }
 
     @include for-size(tablet-portrait-up) {
