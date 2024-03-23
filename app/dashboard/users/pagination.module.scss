@@ -11,16 +11,18 @@
     gap: 1rem;
   }
 
+  .pages {
+    @include for-size(phone-only) {
+      display: none;
+    }
+  }
+
   .cur-page {
     font-weight: 500;
   }
 
   span {
     cursor: pointer;
-
-    @include for-size(phone-only) {
-      display: none;
-    }
   }
 
   button {

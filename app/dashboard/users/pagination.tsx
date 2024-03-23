@@ -49,7 +49,7 @@ const Pagination = ({
               setPage(pageNumber - 1);
             }
           }}
-          className={`${pageNumber === pageIndex + 1 && styles["cur-page"]}`}
+          className={`${styles.pages} ${pageNumber === pageIndex + 1 && styles["cur-page"]}`}
         >
           {pageNumber}
         </span>
