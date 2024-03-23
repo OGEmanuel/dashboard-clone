@@ -1,19 +1,158 @@
 @use "/styles/_colors" as *;
+@import "/styles/_breakpoints.scss";
 
 .nav {
   position: fixed;
   background-color: #fff;
   width: 100%;
-  display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.875rem 3.75rem 1.875rem 1.875rem;
   box-shadow: 5px 0px 20px rgba(0, 0, 0, 0.04);
+
+  button {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  p {
+    color: $primary-color;
+    text-decoration: underline;
+  }
+
+  @include for-size(phone-only) {
+    display: block;
+    padding: 12px 1.5rem;
+  }
+
+  @include for-size(tablet-portrait-up) {
+    padding: 12px 1.5rem;
+  }
+
+  @include for-size(desktop-up) {
+    padding: 1.875rem 3.75rem 1.875rem 1.875rem;
+    display: flex;
+  }
 
   &-action {
     display: flex;
     align-items: center;
-    gap: 11.5rem;
+    position: relative;
+
+    @include for-size(phone-only) {
+      justify-content: space-between;
+      gap: 0;
+    }
+
+    @include for-size(tablet-portrait-up) {
+      justify-content: space-between;
+      gap: 0;
+    }
+
+    @include for-size(desktop-up) {
+      justify-content: flex-start;
+      gap: 11.5rem;
+      width: 100%;
+    }
+
+    div {
+      &:first-child {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+      }
+    }
+
+    .dropdown__mobile {
+      @include for-size(phone-only) {
+        display: block;
+      }
+
+      @include for-size(tablet-portrait-up) {
+        display: block;
+      }
+
+      @include for-size(desktop-up) {
+        display: none;
+      }
+
+      &-view {
+        border-radius: 4px;
+        box-shadow: 5px 0px 20px rgba(0, 0, 0, 0.04);
+        border: 1px solid rgba($primary-color, 0.06);
+        background-color: #fff;
+        padding: 1rem;
+        width: 10rem;
+        z-index: 20;
+        opacity: 1;
+
+        @include for-size(phone-only) {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          position: absolute;
+          top: 2rem;
+          right: 0;
+        }
+
+        @include for-size(tablet-portrait-up) {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          position: absolute;
+          top: 2rem;
+          right: 0;
+        }
+
+        @include for-size(desktop-up) {
+          display: none;
+        }
+
+        & > div {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+      }
+    }
+
+    .hamburger {
+      display: none;
+      @include for-size(phone-only) {
+        display: block;
+      }
+      @include for-size(tablet-portrait-up) {
+        display: block;
+      }
+      @include for-size(desktop-up) {
+        display: none;
+      }
+    }
+
+    .logo-full {
+      display: block;
+      @include for-size(phone-only) {
+        display: none;
+      }
+      @include for-size(tablet-portrait-up) {
+        display: none;
+      }
+      @include for-size(tablet-landscape-up) {
+        display: block;
+      }
+    }
+
+    .logo-short {
+      display: none;
+
+      @include for-size(tablet-portrait-up) {
+        display: block;
+      }
+      @include for-size(tablet-landscape-up) {
+        display: none;
+      }
+    }
   }
 
   .search-box {
@@ -24,11 +163,20 @@
       border: 1px solid rgba($main-text-color, 0.15);
       outline: none;
       padding: 0.75rem 0 0.75rem 1rem;
-      width: 400px;
       font-family: inherit;
       font-size: 0.875rem;
       display: block;
       border-radius: 8px;
+
+      @include for-size(phone-only) {
+        width: 15rem;
+      }
+      @include for-size(tablet-portrait-up) {
+        width: 15rem;
+      }
+      @include for-size(desktop-up) {
+        width: 25rem;
+      }
     }
 
     span {
@@ -43,13 +191,18 @@
   }
 
   .control-center {
-    display: flex;
-    align-items: center;
-    gap: 2.9375rem;
+    @include for-size(phone-only) {
+      display: none;
+    }
 
-    p {
-      color: $primary-color;
-      text-decoration: underline;
+    @include for-size(tablet-portrait-up) {
+      display: none;
+    }
+
+    @include for-size(desktop-up) {
+      display: flex;
+      align-items: center;
+      gap: 2.9375rem;
     }
 
     &__user {
@@ -69,13 +222,6 @@
 
         div {
           position: relative;
-
-          button {
-            border: none;
-            background-color: transparent;
-            padding: 0;
-            cursor: pointer;
-          }
 
           .logout {
             position: absolute;

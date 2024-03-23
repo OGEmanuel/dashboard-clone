@@ -1,26 +1,58 @@
 @use "/styles/_colors" as *;
+@import "/styles/_breakpoints.scss";
 
 .profile-card {
   padding: 1.875rem 0 0 1.875rem;
   box-shadow: 5px 0px 20px rgba(0, 0, 0, 0.04);
   border: 1px solid rgba($primary-color, 0.06);
   margin-bottom: 1.875rem;
+  overflow: hidden;
+
+  @include for-size(phone-only) {
+    padding: 1.875rem 1.875rem 0 1.875rem;
+  }
 
   &__user {
     display: flex;
-    align-items: center;
-    gap: 1.25rem;
     margin-bottom: 3.1875rem;
+
+    @include for-size(phone-only) {
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    @include for-size(tablet-portrait-up) {
+      flex-direction: column;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    @include for-size(desktop-up) {
+      flex-direction: row;
+      gap: 1.25rem;
+      align-items: center;
+    }
 
     &-profile {
       display: flex;
       align-items: center;
       gap: 1.875rem;
 
+      @include for-size(phone-only) {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+        width: 100%;
+      }
+
       &__id {
         display: flex;
         flex-direction: column;
         gap: 8px;
+
+        @include for-size(phone-only) {
+          text-align: center;
+        }
 
         p {
           &:first-child {
@@ -44,6 +76,15 @@
         border-left: 1px solid rgba($main-text-color, 0.2);
         border-right: 1px solid rgba($main-text-color, 0.2);
 
+        @include for-size(phone-only) {
+          border-right: none;
+          border-left: none;
+          border-top: 1px solid rgba($main-text-color, 0.2);
+          border-bottom: 1px solid rgba($main-text-color, 0.2);
+          width: 100%;
+          align-items: center;
+        }
+
         p {
           color: $main-text-color;
           font-size: 14px;
@@ -60,6 +101,11 @@
         display: flex;
         flex-direction: column;
         gap: 12px;
+
+        @include for-size(phone-only) {
+          text-align: center;
+        }
+
         p {
           &:first-child {
             color: $primary-color;

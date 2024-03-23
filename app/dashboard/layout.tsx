@@ -1,6 +1,8 @@
+"use client";
+
 import Sidebar from "@/components/sidebar";
 import styles from "./layout.module.scss";
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 import Navbar from "@/components/navbar";
 
 type Props = {
@@ -8,11 +10,24 @@ type Props = {
 };
 
 const DashboardLayout = ({ children }: Props) => {
+  const [open, setOpen] = useState(false);
+
+  const handleSetOpen = () => {
+    setOpen(!open);
+  };
+
   return (
     <section className={styles.container}>
-      <Navbar />
+      <Navbar onSetOpen={handleSetOpen} />
       <div className={styles.body}>
-        <Sidebar />
+        {open && (
+          <div onClick={handleSetOpen} className={styles["sidebar__mobile"]}>
+            <Sidebar />
+          </div>
+        )}
+        <div className={styles["sidebar__desktop"]}>
+          <Sidebar />
+        </div>
         <main>{children}</main>
       </div>
     </section>

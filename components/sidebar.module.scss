@@ -1,11 +1,51 @@
 @use "/styles/_colors" as *;
+@import "/styles/_breakpoints.scss";
 
 .container {
   width: max-content;
   box-shadow: 5px 0px 20px rgba(0, 0, 0, 0.04);
   padding-top: 2.4375rem;
-  height: calc(100vh - 6.75rem);
   overflow: auto;
+
+  @include for-size(phone-only) {
+    height: calc(100vh - 4.125rem);
+  }
+  @include for-size(tablet-portrait-up) {
+    height: calc(100vh - 4.125rem);
+  }
+  @include for-size(desktop-up) {
+    height: calc(100vh - 6.75rem);
+    display: block;
+  }
+
+  button {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    margin-bottom: 3.3125rem;
+    cursor: pointer;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-family: inherit;
+    color: $primary-color;
+    font-size: 1rem;
+    margin-left: 1.875rem;
+  }
+
+  div {
+    &:last-child {
+      margin-top: 4.375rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba($primary-color, 0.1);
+
+      p {
+        margin-left: 1.875rem;
+        font-size: 12px;
+        color: $primary-color;
+      }
+    }
+  }
 
   .switch {
     background-color: #fff;

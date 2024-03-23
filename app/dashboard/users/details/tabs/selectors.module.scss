@@ -1,10 +1,22 @@
 @use "/styles/_colors" as *;
+@import "/styles/_breakpoints.scss";
 
 .selectors {
   display: flex;
   justify-content: space-between;
   gap: 5rem;
   padding-right: 2.25rem;
+  width: 100%;
+
+  @include for-size(phone-only) {
+    overflow: auto;
+    gap: 2rem;
+    padding-right: 1rem;
+  }
+
+  @include for-size(tablet-portrait-up) {
+    overflow: auto;
+  }
 
   button {
     background-color: #fff;
@@ -14,6 +26,10 @@
     border-bottom: 2px solid transparent;
     font-family: inherit;
     font-size: 1rem;
+
+    @include for-size(phone-only) {
+      font-size: 12px;
+    }
 
     &:hover,
     &:nth-child(1) {
@@ -25,6 +41,11 @@
       padding-left: 1.5625rem;
       padding-right: 1.5625rem;
       border-bottom: 2px solid $secondary-color;
+
+      @include for-size(phone-only) {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
     }
   }
 }

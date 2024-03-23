@@ -23,9 +23,18 @@ import ChartBarIcon from "@/public/icons/chart-bar-icon";
 import SlidersIcon from "@/public/icons/sliders-icon";
 import BadgePercentIcon from "@/public/icons/badge-percent-icon";
 import ClipboardListIcon from "@/public/icons/clipboard-list-icon";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import TireIcon from "@/public/icons/tire-icon";
+import SignOutIcon from "@/public/icons/sign-out-icon";
 
 const Sidebar = () => {
+  const router = useRouter();
+
+  const handleLogout = () => {
+    router.push("/");
+    localStorage.clear();
+  };
+
   const pathname = usePathname();
   return (
     <aside className={styles.container}>
@@ -169,7 +178,20 @@ const Sidebar = () => {
               Audit Logs
             </Link>
           </li>
+          <li className={styles["nav-list-item"]}>
+            <Link href={"/dashboard/users"}>
+              <TireIcon />
+              Systems Messages
+            </Link>
+          </li>
         </ul>
+      </div>
+      <div>
+        <button onClick={handleLogout}>
+          <SignOutIcon />
+          Logout
+        </button>
+        <p>v1.2.0</p>
       </div>
     </aside>
   );

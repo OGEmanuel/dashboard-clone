@@ -27,7 +27,7 @@ const LoginForm = () => {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (loading) return;
-    if (email === "" && password.length < 8) {
+    if (email === "" || password.length < 8) {
       setError(true);
       return;
     }

@@ -1,19 +1,36 @@
 @use "/styles/_colors" as *;
+@import "/styles/_breakpoints.scss";
 
 .table-section {
   width: 100%;
   position: relative;
 
-  table {
+  &__table-container {
     margin-bottom: 1.25rem;
     background-color: #fff;
     box-shadow: 5px 0px 20px rgba(0, 0, 0, 0.04);
     border: 1px solid rgba($primary-color, 0.06);
     padding: 0 1.875rem;
     border-radius: 4px;
-    width: 100%;
     overflow: auto;
+    width: 100%;
+  }
+
+  table {
     border-spacing: 0 25px;
+    z-index: 15;
+
+    @include for-size(phone-only) {
+      width: 64.8125rem;
+    }
+
+    @include for-size(tablet-portrait-up) {
+      width: 64.8125rem;
+    }
+
+    @include for-size(desktop-up) {
+      width: 67rem;
+    }
 
     thead {
       font-weight: 600;
@@ -60,10 +77,18 @@
     display: flex;
     justify-content: space-between;
 
+    @include for-size(phone-only) {
+      align-items: flex-start;
+    }
+
     &-view {
       display: flex;
       align-items: center;
       gap: 10px;
+
+      @include for-size(phone-only) {
+        flex-wrap: wrap;
+      }
 
       p {
         font-size: 0.875rem;

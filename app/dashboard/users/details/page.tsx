@@ -3,6 +3,11 @@ import styles from "./page.module.scss";
 import Link from "next/link";
 import ProfileCard from "./profile-card";
 import DetailsCard from "./details-card";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "User Details - Lendsqr-fe-test",
+};
 
 const UserDetails = () => {
   return (

@@ -7,6 +7,11 @@ import { DataType } from "@/types/entity";
 import DataTable from "./data-table";
 import { columns } from "./columns";
 import { getTableData } from "@/app/lib/data";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Users - Lendsqr-fe-test",
+};
 
 const DashboardPage = async () => {
   const data: DataType[] = await getTableData();

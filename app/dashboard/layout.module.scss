@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+@import "/styles/_breakpoints.scss";
 
 .container {
   font-family: "Work Sans", sans-serif;
@@ -9,11 +10,85 @@
     margin-top: 6.75rem;
     width: 100%;
 
+    @include for-size(phone-only) {
+      margin-top: 4.125rem;
+      display: block;
+    }
+
+    @include for-size(tablet-portrait-up) {
+      margin-top: 4.125rem;
+      display: block;
+    }
+
+    @include for-size(desktop-up) {
+      display: flex;
+      position: fixed;
+      margin-top: 6.75rem;
+    }
+
+    .sidebar__mobile {
+      display: none;
+      z-index: 20;
+
+      @include for-size(phone-only) {
+        display: block;
+        position: fixed;
+        background-color: #fff;
+        height: calc(100vh - 4.125rem);
+      }
+
+      @include for-size(tablet-portrait-up) {
+        display: block;
+        position: fixed;
+        background-color: #fff;
+        height: calc(100vh - 4.125rem);
+      }
+
+      @include for-size(desktop-up) {
+        display: none;
+      }
+    }
+
+    .sidebar__desktop {
+      @include for-size(phone-only) {
+        display: none;
+      }
+
+      @include for-size(tablet-portrait-up) {
+        display: none;
+      }
+
+      @include for-size(desktop-up) {
+        display: block;
+      }
+    }
+
     main {
       padding: 3rem;
       width: calc(100% - 21.4575rem);
       height: calc(100vh - 6.75rem);
       overflow: auto;
+
+      @include for-size(phone-only) {
+        padding: 1.5rem;
+        width: auto;
+        height: calc(100vh - 4.125rem);
+        padding: auto;
+      }
+
+      @include for-size(tablet-portrait-up) {
+        padding: 1.5rem;
+        width: auto;
+        height: calc(100vh - 4.125rem);
+        padding: auto;
+      }
+
+      @include for-size(desktop-up) {
+        padding: 3rem;
+        width: calc(100% - 21.4575rem);
+        height: calc(100vh - 6.75rem);
+        overflow: auto;
+      }
     }
   }
 }

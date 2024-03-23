@@ -1,0 +1,38 @@
+[
+  {
+    "id": "LSQFf587g90",
+    "full_name": "Grace Effiom",
+    "gender": "Female",
+    "phone_number": "07060780922",
+    "email_address": "grace@gmail.com",
+    "marital_status": "Single",
+    "children": "None",
+    "type_of_residence": "Parent’s Apartment",
+    "financial_details": {
+      "balance": "₦200,000.00",
+      "bank_account": "9912345678",
+      "bank_name": "Providus Bank",
+      "bvn": "07060780922"
+    },
+    "education_employment": {
+      "level_of_education": "B.Sc",
+      "employment_status": "Employed",
+      "sector_of_employment": "FinTech",
+      "duration_of_employment": "2 years",
+      "office_email": "grace@lendsqr.com",
+      "monthly_income": "₦200,000.00- ₦400,000.00",
+      "loan_repayment": "40,000"
+    },
+    "socials": {
+      "twitter": "@grace_effiom",
+      "facebook": "Grace Effiom",
+      "instagram": "@grace_effiom"
+    },
+    "guarantor": {
+      "full_name": "Debby Ogana",
+      "phone_number": "07060780922",
+      "email_address": "debby@gmail.com",
+      "relationship": "Sister"
+    }
+  }
+]

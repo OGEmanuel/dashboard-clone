@@ -56,48 +56,50 @@ const DataTable = <TData, TValue>({
 
   return (
     <section className={styles["table-section"]}>
-      <table>
-        <thead>
-          {table.getHeaderGroups().map((headerGroup) => (
-            <tr key={headerGroup.id}>
-              {headerGroup.headers.map((header, i) => (
-                <th key={header.id}>
-                  <span>
-                    {flexRender(
-                      header.column.columnDef.header,
-                      header.getContext()
-                    )}
-                    {i !== table.getHeaderGroups()[0].headers.length - 1 && (
-                      <>
-                        <button onClick={handleFilter}>
-                          <FilterResultsButtonIcon />
-                        </button>
-                      </>
-                    )}
-                  </span>
-                </th>
-              ))}
-            </tr>
-          ))}
-        </thead>
-        <tbody>
-          {table.getRowModel().rows.length
-            ? table.getRowModel().rows.map((row, i) => (
-                <tr key={row.id}>
-                  {row.getVisibleCells().map((cell) => (
-                    <td key={cell.id}>
+      <div className={styles["table-section__table-container"]}>
+        <table>
+          <thead>
+            {table.getHeaderGroups().map((headerGroup) => (
+              <tr key={headerGroup.id}>
+                {headerGroup.headers.map((header, i) => (
+                  <th key={header.id}>
+                    <span>
                       {flexRender(
-                        cell.column.columnDef.cell,
-                        cell.getContext()
+                        header.column.columnDef.header,
+                        header.getContext()
                       )}
-                      {i !== table.getRowModel().rows.length - 1 && <hr />}
-                    </td>
-                  ))}
-                </tr>
-              ))
-            : null}
-        </tbody>
-      </table>
+                      {i !== table.getHeaderGroups()[0].headers.length - 1 && (
+                        <>
+                          <button onClick={handleFilter}>
+                            <FilterResultsButtonIcon />
+                          </button>
+                        </>
+                      )}
+                    </span>
+                  </th>
+                ))}
+              </tr>
+            ))}
+          </thead>
+          <tbody>
+            {table.getRowModel().rows.length
+              ? table.getRowModel().rows.map((row, i) => (
+                  <tr key={row.id}>
+                    {row.getVisibleCells().map((cell) => (
+                      <td key={cell.id}>
+                        {flexRender(
+                          cell.column.columnDef.cell,
+                          cell.getContext()
+                        )}
+                        {i !== table.getRowModel().rows.length - 1 && <hr />}
+                      </td>
+                    ))}
+                  </tr>
+                ))
+              : null}
+          </tbody>
+        </table>
+      </div>
       <div className={styles.pagination}>
         <div className={styles["pagination-view"]}>
           <p>Showing</p>

@@ -1,4 +1,5 @@
 @use "/styles/_colors" as *;
+@import "/styles/_breakpoints.scss";
 
 .section {
   a {
@@ -9,6 +10,7 @@
     text-decoration: none;
     color: $main-text-color;
     margin-bottom: 1.625rem;
+    width: max-content;
   }
 
   .header {
@@ -16,15 +18,28 @@
     justify-content: space-between;
     margin-bottom: 2.5rem;
 
+    @include for-size(phone-only) {
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
     h1 {
       font-size: 1.5rem;
       font-weight: 500;
       color: $primary-color;
+
+      @include for-size(phone-only) {
+        font-size: 1rem;
+      }
     }
 
     &-actions {
       display: flex;
       gap: 1.25rem;
+
+      @include for-size(phone-only) {
+        flex-direction: column;
+      }
 
       button {
         padding: 12px 1.875rem;
@@ -37,6 +52,12 @@
         background-color: #fff;
         letter-spacing: 2px;
         font-family: inherit;
+
+        @include for-size(phone-only) {
+          padding: 6px 15px;
+          font-size: 12px;
+          width: 7rem;
+        }
 
         &:hover {
           background-color: rgba($main-text-color, 0.05);
