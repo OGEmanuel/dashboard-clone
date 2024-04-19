@@ -1,4 +1,4 @@
-# Project Name: [Lendsqr Frontend Test](https://emmanuel-ogunmola-lendsqr-fe-test.vercel.app/)
+# Project Name: [Dashboard Clone](https://emmanuel-ogunmola-lendsqr-fe-test.vercel.app/)
 
 ## Description:
 This project is a clone of the Lendsqr Admin Console, designed to showcase proficiency in frontend development. It includes four main pages: Login, Dashboard, User Page, and User Details Page. The design and functionality closely resemble the original Lendsqr Admin Console, providing a seamless user experience.
