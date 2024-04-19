@@ -18,8 +18,8 @@ This project is a clone of the Lendsqr Admin Console, designed to showcase profi
 - **Vercel:** This platform offers a streamlined deployment process for static and serverless applications. It was used to deploy the completed application for easy access and sharing.
 
 ## Setup Instructions:
-1. Clone the repository: `git clone https://github.com/OGEmanuel/lendsqr-fe-test.git`
-2. Navigate to the project directory: `cd lendsqr-fe-test`
+1. Clone the repository: `git clone https://github.com/OGEmanuel/dashboard-clone.git`
+2. Navigate to the project directory: `cd dashboard-clone`
 3. Install dependencies: `npm install`
 4. Start the development server: `npm run dev`
 5. Access the application at `http://localhost:3000`
